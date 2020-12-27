@@ -1,0 +1,23 @@
+<!--pages/video/video.wxml-->
+<view>
+  <!-- 头部左右logo和中间搜索框的input输入框 -->
+  <view class="header">
+    <image class='leftlogo ' src='/static/images/video/video.jpg'></image>
+    <input placeholder="我是搜索框的input" placeholder-class="placeholder" type='text' class="input"></input>
+    <image class='rightlogo' src='/static/images/logo.png'></image>
+  </view>
+  <!-- scrollview的关键字部分(导航栏) -->
+  <scroll-view enable-flex scroll-x class="scrollview"  scroll-into-view='hahaha{{whichisToLeft}}'  scroll-with-animation>
+    <text wx:for='{{videoList}}' wx:key='id' wx:for-item='video' id='hahaha{{video.id}}'data-id="{{video.id}}" bindtap="changeCurrentId" class='{{currentId === video.id?"active":""}}'>{{video.name}}</text>
+  </scroll-view>
+  <!-- 每个关键字对应的视频部分 -->
+  <scroll-view  class='videoScroll' scroll-y enable-flex   refresher-enabled   refresher-triggered='{{refresher-triggered}}' bindrefresherrefresh='scrollviewPull'   bindscrolltolower='scrollviewPush'>
+    <view class='videoContainer'
+    wx:for='{{keywordsVideoList}}'
+    wx:key='url'
+    wx:for-item='item'
+    >
+      <video class='video' src='{{item.data.urlInfo.url}}' ></video>
+    </view>
+  </scroll-view>
+</view>

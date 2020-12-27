@@ -1,0 +1,186 @@
+<!--index.wxml-->
+
+<view class="container">
+  <!-- 轮播图区域 -->
+  <swiper indicator-dots="true" indicator-color="ivory" indicator-active-color="#d43c33" autoplay="true" interval="3000">
+    <swiper-item wx:for='{{bannerList}}' wx:key='encodeId' wx:for-item="banner">
+      <image src='{{banner.pic}}'></image>
+    </swiper-item>
+    <!-- <swiper-item>
+      <image src='/static/images/2.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/static/images/1.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/static/images/4.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/static/images/5.jpg'></image>
+    </swiper-item> -->
+  </swiper>
+  <!-- 导航区域 -->
+  <view class="navcontainer">
+
+    <view class='nav'>
+      <text class="iconfont iconfont2 icon-shouye"></text>
+      <text class="text">每日推荐</text>
+    </view>
+
+    <view class='nav'>
+      <text class="iconfont iconfont2 icon-gedan"></text>
+      <text class="text">歌单</text>
+    </view>
+
+    <view class='nav'>
+      <text class="iconfont iconfont2 icon-paixingbang"></text>
+      <text class="text">排行榜</text>
+    </view>
+
+    <view class='nav'>
+      <text class="iconfont iconfont2 icon-diantai"></text>
+      <text class="text">电台</text>
+    </view>
+
+    <view class='nav'>
+      <text class="iconfont iconfont2 icon-shexiangji"></text>
+      <text class="text">直播</text>
+    </view>
+  </view>
+  <!-- 推荐区域 -->
+  <view class='recommnedContainer'>
+    <text class='title'>推荐歌曲</text>
+    <view class="buttom">
+      <text class='content'>为你精心推荐</text>
+      <view class="more">查看更多</view>
+    </view>
+    <!-- sroll连载图区域 -->
+    <scroll-view class='recommnedscroll' scroll-x='true' enable-flex='true'>
+      <view class='images' wx:for='{{recommendedList}}' wx:key='id' wx:for-item='recommended'>
+        <image class='image' src='{{recommended.picUrl}}'></image>
+        <view class="message">{{recommended.name}}</view>
+      </view>
+      <!-- <view class='images'>
+      <image class='image' src='/static/images/4.jpg'></image>
+      <view class="message">哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+      </view>
+        <view class='images'>
+      <image class='image' src='/static/images/4.jpg'></image>
+      <view class="message">哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+      </view>
+      <view class='images'>
+      <image class='image' src='/static/images/4.jpg'></image>
+      <view class="message">哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+      </view>
+
+      <view class='images'>
+      <image class='image' src='/static/images/4.jpg'></image>
+      <view class="message">哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+    </view> -->
+    </scroll-view>
+    <!-- 复用推荐,再包一个div（view），使用定位 -->
+
+    <view class='absolute'>
+      <text class='title'>排行榜</text>
+      <view class="buttom">
+        <text class='content'>热歌风向标</text>
+        <view class="more absolute2">查看更多</view>
+      </view>
+    </view>
+
+
+
+    <scroll-view class="enableflex" scroll-x='true' enable-flex='true'>
+
+      <view class='outer' wx:for='{{topList}}' wx:key='name' wx:for-item='top'>
+        <!-- 排行榜 -->
+        <text style="font-size:10px">{{top.name}}</text>
+        <view class='inner'>
+          <image class='order' src="{{top.list[0].al.picUrl}}"></image>
+          <text class="number">1</text>
+          <text class="single">{{top.list[0].al.name}}</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src="{{top.list[1].al.picUrl}}"></image>
+          <text class="number">2</text>
+          <text class="single">{{top.list[1].al.name}}</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src="{{top.list[2].al.picUrl}}"></image>
+          <text class="number">3</text>
+          <text class="single">{{top.list[2].al.name}}</text>
+        </view>
+      </view>
+      <!-- 排行榜复用
+
+      <!-- <view class='outer'>
+        <text style="font-size:10px">中国TOP排行榜 （内地榜） ></text>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+      </view>
+      <!-- 排行榜复用 -->
+      <!-- <view class='outer'>
+        <text style="font-size:10px">中国TOP排行榜 （内地榜） ></text>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+      </view> -->
+      <!-- 排行榜复用 -->
+      <!-- <view class='outer'>
+        <text style="font-size:10px">中国TOP排行榜 （内地榜） ></text>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view>
+        <view class='inner'>
+          <image class='order' src='/static/images/1.jpg'></image>
+          <text class="number">1</text>
+          <text>幻</text>
+        </view> 
+      </view> -->
+    </scroll-view>
+
+
+
+
+
+
+  </view>
+  <!-- <view class="fix"> -->
+    <!-- 底部固定按钮 -->
+    <!-- <view class='iconfont icon-shouye  iconfont3'></view>
+    <view class='iconfont icon-shipin  '></view>
+    <view class='iconfont icon-gerenzhongxin '></view> -->
+  <!-- </view> -->
+</view>
