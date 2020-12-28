@@ -148,6 +148,26 @@ Page({
    */
 
   onShow: function() {
+    // 未登录进入视频页面，显示模态框，有两个选择，去首页或者去登录页面
+    if(!wx.getStorageSync('cookies')){
+      wx.showModal({
+        title: '请先登录',
+        content: '该功能需要登陆才能访问',
+        cancelText:'回到首页',
+        confirmText:"去登陆",
+        success (res){
+           if(res.confirm){
+             wx.navigateTo({
+               url: '/pages/login/login',
+             })
+           }if(res.cancel){
+              wx.switchTab({
+                url: '/pages/index/index',
+              })
+           }
+        }
+      })
+    }
     //请求视频的关键字（视频导航列表的数据）
     wx.request({
       url: 'http://localhost:3000/video/group/list',
