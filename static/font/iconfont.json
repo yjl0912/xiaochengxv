@@ -13,11 +13,46 @@
       "unicode_decimal": 59325
     },
     {
+      "icon_id": "683294",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "996525",
+      "name": "下一个",
+      "font_class": "ai09",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "996526",
+      "name": "上一个",
+      "font_class": "ai10",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
       "icon_id": "1841666",
       "name": "电台",
       "font_class": "diantai",
       "unicode": "e621",
       "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "3216218",
+      "name": "随机",
+      "font_class": "icon--",
+      "unicode": "e77d",
+      "unicode_decimal": 59261
+    },
+    {
+      "icon_id": "4052718",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e696",
+      "unicode_decimal": 59030
     },
     {
       "icon_id": "9557789",
@@ -39,6 +74,13 @@
       "font_class": "shipin",
       "unicode": "e63d",
       "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "18170161",
+      "name": "功能,汉堡键,横杠",
+      "font_class": "row",
+      "unicode": "e976",
+      "unicode_decimal": 59766
     },
     {
       "icon_id": "18826513",

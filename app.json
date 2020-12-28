@@ -1,13 +1,11 @@
 {
   "pages": [
-    
-    
     "pages/index/index",
     "pages/recommandSong/recommandSong",
     "pages/video/video",
     "pages/login/login",
-    "pages/personal/personal"
-    
+    "pages/personal/personal",
+    "pages/song/song"
   ],
   "window": {
     "backgroundTextStyle": "light",

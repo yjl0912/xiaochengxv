@@ -9,6 +9,12 @@ Page({
        month:'',
        recommandSongs:[]
   },
+  //点击某推荐歌曲，进入该歌曲的播放页面song
+  enterSongPage(){
+    wx.navigateTo({
+      url: '/pages/song/song',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
