@@ -12,7 +12,7 @@ Page({
   onLoad() {
     // 获取推荐列表数据
     wx.request({
-      url: 'http://39.108.253.253:3000/personalized',
+      url: 'http://localhost:3000/personalized',
       success: (res) => {
         this.setData({
           recommendedList: res.data.result
@@ -22,7 +22,7 @@ Page({
 
     //获取轮播图片
     wx.request({
-      url: 'http://39.108.253.253:3000/banner?type=2',
+      url: 'http://localhost:3000/banner?type=2',
       success: (res) => {
         this.setData({
           bannerList: res.data.banners

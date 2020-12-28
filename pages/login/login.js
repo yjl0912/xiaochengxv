@@ -37,7 +37,7 @@ Page({
       })
     }
     const result = await wx.request({
-      url: 'http://39.108.253.253:3000/login/cellphone?phone=17320167476&password=yjl123456.',
+      url: 'http://localhost:3000/login/cellphone?phone=17320167476&password=yjl123456.',
       success: (res) => {
         //先设置storage
         wx.setStorage({

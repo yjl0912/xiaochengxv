@@ -62,7 +62,7 @@ Page({
     })
     //下拉刷新请求一次。即当前关键字下重新请求一次
     wx.request({
-      url: 'http://39.108.253.253:3000/video/group',
+      url: 'http://localhost:3000/video/group',
       data: {
         id: this.data.currentId
       },
@@ -96,7 +96,7 @@ Page({
       keywordsVideoList: []
     })
     wx.request({
-      url: 'http://39.108.253.253:3000/video/group',
+      url: 'http://localhost:3000/video/group',
       data: {
         id: this.data.currentId
       },
@@ -138,7 +138,7 @@ Page({
   onShow: function() {
     //请求视频的关键字（视频导航列表的数据）
     wx.request({
-      url: 'http://39.108.253.253:3000/video/group/list',
+      url: 'http://localhost:3000/video/group/list',
       success: (res) => {
 
         this.setData({
@@ -169,7 +169,7 @@ Page({
     })
     //刚进来，请求一次视频
     wx.request({
-      url: 'http://39.108.253.253:3000/video/group',
+      url: 'http://localhost:3000/video/group',
       data: {
         id: this.data.currentId
       },
@@ -219,7 +219,25 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function({from,target}) {
+     if(from ==="menu"){
+          return{
+            title:'小程序中随意一张图片',
+            path:'/pages/personal/personal',  //转发路径
+            imageUrl:'/static/images/video/3.jpg'
+          }
+     }else if(from==="button"){
+       //button的分享必须从自定义属性里面得到   如data-title='美女图片'，从target.dataset里面解构出title
+       const {imgurl,title} = target.dataset
+       console.log(target)
+         return{
+           title :title,
+           imgUrl:imgurl,
+           path:'/pages/video/video'
+         }
+     }
   }
+
+
+
 })

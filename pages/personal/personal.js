@@ -59,7 +59,7 @@ Page({
     // })
 
     wx.request({
-      url: 'http://39.108.253.253:3000/user/record?uid=4017133696&type=1',
+      url: 'http://localhost:3000/user/record?uid=4017133696&type=1',
       success: (res) => {
         if (!userMessage) return  //如果没有登录（没有头像和昵称），就return，不发听歌历史的请求
         this.setData({
