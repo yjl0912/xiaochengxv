@@ -22,9 +22,9 @@
   <!-- 导航区域 -->
   <view class="navcontainer">
 
-    <view class='nav'>
+    <view class='nav' bindtap="enterRecommandSongPage">
       <text class="iconfont iconfont2 icon-shouye"></text>
-      <text class="text">每日推荐</text>
+      <text class="text" >每日推荐</text>
     </view>
 
     <view class='nav'>

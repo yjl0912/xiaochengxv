@@ -9,6 +9,11 @@ Page({
     recommendedList: [],
     topList: []
   },
+  enterRecommandSongPage(){
+    wx.navigateTo({
+      url: '/pages/recommandSong/recommandSong',
+    })
+  },
   onLoad() {
     // 获取推荐列表数据
     wx.request({
