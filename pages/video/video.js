@@ -10,7 +10,19 @@ Page({
     keywordsVideoList: [],
     triggered: true,
     flag:false,
-    whichisToLeft:58100
+    whichisToLeft:58100,
+    videoshowid:''
+    
+  },
+  videoShow(event){
+    // console.log("videoShow",event)
+    let { id } = event.currentTarget
+     this.setData({
+       videoshowid:id
+     })
+    let videocontext = wx.createVideoContext(this.data.videoshowid)
+    videocontext.play()
+      
   },
   //播放当前视频之后通过videocontext上下文控制上个视频的暂停
   viedeoplay(event){

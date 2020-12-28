@@ -16,8 +16,10 @@
     wx:for='{{keywordsVideoList}}'
     wx:key='url'
     wx:for-item='item'
-    >
-      <video class='video' src='{{item.data.urlInfo.url}}' id='{{item.data.urlInfo.id}}' bindplay="viedeoplay"
+    > 
+    
+    <image wx:if="{{item.data.urlInfo.id!==videoshowid}}" id='{{item.data.urlInfo.id}}' src='{{item.data.coverUrl}}' bindtap="videoShow"></image>
+      <video wx:else id='{{item.data.urlInfo.id}}' class='video' src='{{item.data.urlInfo.url}}'  bindplay="viedeoplay"
        ></video>
       <button  open-type="share"   data-title='{{item.data.title}}'  data-imgurl="{{item.data.coverUrl}}">分享</button>
     </view>
