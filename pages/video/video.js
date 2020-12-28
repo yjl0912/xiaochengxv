@@ -12,6 +12,17 @@ Page({
     flag:false,
     whichisToLeft:58100
   },
+  //播放当前视频之后通过videocontext上下文控制上个视频的暂停
+  viedeoplay(event){
+    let {id} = event.currentTarget
+    let lastVideoId = this.lastVideoId //当时漏写了这一句，导致lastVideoId为undefined
+    // console.log(lastVideoId)
+    if(lastVideoId &&lastVideoId!=id){
+      const videContext = wx.createVideoContext(lastVideoId)
+      videContext.pause();
+    }
+         this.lastVideoId = id;
+  },
   
   //上推触底加载更多视频
   scrollviewPush(){
