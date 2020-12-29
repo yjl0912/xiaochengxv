@@ -80,7 +80,7 @@ Page({
       },
       success:(res)=>{
         this.setData({
-          recommandSongs: res.data.recommend.slice(0,10)
+          recommandSongs: res.data.recommend.slice(10,30)
         })
       }
     })

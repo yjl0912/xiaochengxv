@@ -37,5 +37,10 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  //保存上一次song页面的id和播放状态
+  lastSongIdAndStatus:{
+    id:'',
+    playOrPaused:false
   }
 })

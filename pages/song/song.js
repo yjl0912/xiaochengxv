@@ -12,12 +12,16 @@ Page({
     stopOrPlay: true,
     songplayUrl:'',
     stopOrPlay:false,
+    ids:'',
   },
+  //点了播放按钮
    songPlay(){
+     let app = getApp()
      //请求歌曲地址
      this.setData({
        stopOrPlay:!this.data.stopOrPlay
      })
+     app.lastSongIdAndStatus.playOrPaused = !app.lastSongIdAndStatus.playOrPaused;
     
      const songplayId = this.data.songobj.id
     //  console.log(songplayId)
@@ -47,7 +51,7 @@ Page({
            backgroundAudioManager.pause()
          }
          
-       }, 200)
+       }, 500)
      
 
  
@@ -60,6 +64,10 @@ Page({
   onLoad: function (options) {
     // console.log(options) //{songid: "28018075"} 所以options是专门获取路由跳转时，传递的参数的
     const ids = options.songid;
+    //将这次播放页面的歌曲id设置到this.data上，方便存到app实例上，以后作比较要用
+    this.setData({
+      ids:ids
+    })
     //请求歌曲详情，不包括歌曲播放地址
     wx.request({
       url:'http://localhost:3000/song/detail',
@@ -93,7 +101,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+    //查看上一次进入song页面时的是不是歌id相同，和播放状态
+   let app = getApp()
+   //如果上一首与这次是同一首，并且上次的播放状态是true，那么要改变data中的播放状态为true，来控制这次的样式
+    if (app.lastSongIdAndStatus.id ===this.data.ids && app.lastSongIdAndStatus.playOrPaused ===true){
+      this.setData({
+        stopOrPlay:true
+      })
+    }
+    console.log(app.lastSongIdAndStatus.id)
+    console.log(app.lastSongIdAndStatus.playOrPaused)
+    app.lastSongIdAndStatus.id = this.data.ids
+
   },
 
   /**

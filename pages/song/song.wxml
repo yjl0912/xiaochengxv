@@ -1,7 +1,8 @@
 <view class="songContainer ">
   <view class="name">{{songobj.ar[0].name}}</view>
   <view class="keng"></view>
-  <image class="needle" src="/static/images/song/needle.png"></image>
+  <image class="needle" src="/static/images/song/needle.png"
+  style="transform:{{stopOrPlay?'rotateZ(0deg)':'rotateZ(-20deg)'}};"></image>
   <view class="discContainer " style="animation-play-state:{{stopOrPlay?'running':'paused'}}">
     <image class="disc" src="/static/images/song/disc.png"></image>
     <image class="bigImg" src="{{songobj.al.picUrl}}"></image>
