@@ -8,10 +8,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    songobj:{}
+    songobj:{},
+    stopOrPlay: true,
+    songplayUrl:'',
+    stopOrPlay:false,
   },
    songPlay(){
      //请求歌曲地址
+     this.setData({
+       stopOrPlay:!this.data.stopOrPlay
+     })
+    
      const songplayId = this.data.songobj.id
     //  console.log(songplayId)
       wx.request({
@@ -28,12 +35,21 @@ Page({
      })
      //根据请求回来的歌曲地址，创建个音频实例，让歌曲播放，使用背景音频
      //请求是异步的，确保歌曲播放的地址有了之后再创建背景音乐实例，所以用了定时器
-     setTimeout(()=>{
-       let backgroundAudioManager = wx.getBackgroundAudioManager();
-       backgroundAudioManager.src = this.data.songplayUrl;
-       backgroundAudioManager.title = this.data.songobj.name
-       console.log(backgroundAudioManager.src)
-     },1000)
+     // stopOrPlay为true，
+     
+       setTimeout(() => {
+         let backgroundAudioManager = wx.getBackgroundAudioManager();
+         backgroundAudioManager.src = this.data.songplayUrl;
+         backgroundAudioManager.title = this.data.songobj.name;
+         if (this.data.stopOrPlay){
+           backgroundAudioManager.play()
+         }else{
+           backgroundAudioManager.pause()
+         }
+         
+       }, 200)
+     
+
  
 
   },

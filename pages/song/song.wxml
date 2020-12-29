@@ -2,7 +2,7 @@
   <view class="name">{{songobj.ar[0].name}}</view>
   <view class="keng"></view>
   <image class="needle" src="/static/images/song/needle.png"></image>
-  <view class="discContainer">
+  <view class="discContainer " style="animation-play-state:{{stopOrPlay?'running':'paused'}}">
     <image class="disc" src="/static/images/song/disc.png"></image>
     <image class="bigImg" src="{{songobj.al.picUrl}}"></image>
   </view>
@@ -11,7 +11,7 @@
   <view class="musicControl">
     <text class="iconfont icon-icon--" ></text>
     <text class="iconfont icon-ai10" ></text>
-    <text class="iconfont icon-bofang "  bindtap="songPlay"></text>
+    <text class="iconfont {{stopOrPlay?'icon-zanting':'icon-bofang'}}"  bindtap="songPlay"></text>
     <text class="iconfont icon-ai09 "></text>
    <text class="iconfont icon-row "></text>
   </view>
