@@ -10,9 +10,12 @@ Page({
        recommandSongs:[]
   },
   //点击某推荐歌曲，进入该歌曲的播放页面song
-  enterSongPage(){
+  enterSongPage(event){
+    //将每首歌的id通过自定义属性定义，拿到之后跳转到song页面时，通过路由传参
+    // console.log(event.currentTarget.dataset.songid)
+    const songid = event.currentTarget.dataset.songid
     wx.navigateTo({
-      url: '/pages/song/song',
+      url: '/pages/song/song?songid='+songid,
     })
   },
 
@@ -69,7 +72,7 @@ Page({
       cookies = JSON.parse(getcookies)
     }
     
-    console.log(cookies)
+    // console.log(cookies)
     wx.request({
       url: 'http://localhost:3000/recommend/songs',
       header:{

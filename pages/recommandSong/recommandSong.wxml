@@ -1,4 +1,4 @@
-<view class="recommendContainer">
+ <view class="recommendContainer">
   <view class="header">
     <image src="/static/images/recommendSong/recommendSong.jpg"></image>
     <view class="date">
@@ -16,7 +16,7 @@
 
     <!-- 音乐列表 -->
     <scroll-view class="scrollView" scroll-y>
-      <view class="recommendItem" wx:for='{{recommandSongs}}'  wx:for-itrm='item' wx:key='id' bindtap="enterSongPage">
+      <view class="recommendItem" wx:for='{{recommandSongs}}'   wx:key='id' bindtap="enterSongPage" data-songId='{{item.id}}'>
         <image src="{{item.album.picUrl}}"></image>
         <view class="musicContent">
           <text class="musicName">{{item.name}}</text>
