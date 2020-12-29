@@ -73,7 +73,7 @@ Page({
     wx.request({
       url: 'http://localhost:3000/recommend/songs',
       header:{
-        cookies:cookies
+        cookie:cookies     //header里必须写cookie而不是cookies
       },
       success:(res)=>{
         this.setData({

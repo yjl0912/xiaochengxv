@@ -1,4 +1,7 @@
 // pages/song/song.js
+
+
+ import PubSub from "pubsub-js";
 Page({
 
   /**

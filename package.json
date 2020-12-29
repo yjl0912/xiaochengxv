@@ -1,0 +1,22 @@
+{
+  "name": "handwritewangyiyun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjl0912/-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yjl0912/-/issues"
+  },
+  "homepage": "https://github.com/yjl0912/-#readme",
+  "dependencies": {
+    "pubsub-js": "^1.9.2"
+  }
+}

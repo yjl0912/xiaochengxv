@@ -54,7 +54,7 @@
   /* transform:rotateZ(360deg); */
   /*animation:关键帧动画名称 一次动画的执行周期 执行多少次 运行模式(先快后慢还是匀速);  */
   animation:run 4s infinite linear;
-  animation-play-state: running;
+  animation-play-state: paused;
 }
 
 .songContainer.isplaying  .discContainer{
